@@ -1,0 +1,19 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make.exe: Entering directory `c:/Projects/IllinoisCpp/image-transform'
+mkdir -p .objs
+mkdir -p .objs/uiuc
+mkdir -p .objs/uiuc/catch
+mkdir -p .objs/uiuc/lodepng
+mkdir -p .objs/tests
+g++  -std=c++14   -g -O0 -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -msse2 -c main.cpp -o .objs/main.o
+g++  -std=c++14   -g -O0 -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -msse2 -c ImageTransform.cpp -o .objs/ImageTransform.o
+g++  -std=c++14   -g -O0 -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -msse2 -c uiuc/HSLAPixel.cpp -o .objs/uiuc/HSLAPixel.o
+g++  -std=c++14   -g -O0 -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -msse2 -c uiuc/PNG.cpp -o .objs/uiuc/PNG.o
+g++  -std=c++14   -g -O0 -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable -MMD -MP -msse2 -c uiuc/lodepng/lodepng.cpp -o .objs/uiuc/lodepng/lodepng.o
+g++ .objs/main.o .objs/ImageTransform.o .objs/uiuc/HSLAPixel.o .objs/uiuc/PNG.o .objs/uiuc/lodepng/lodepng.o  -std=c++14   -lpthread -o ImageTransform
+echo ""
+echo " Built the main executable program file for the project: " ImageTransform
+echo " (Make sure you try \"make test\" too!)"
+echo ""
+make.exe: Leaving directory `c:/Projects/IllinoisCpp/image-transform'
+ 

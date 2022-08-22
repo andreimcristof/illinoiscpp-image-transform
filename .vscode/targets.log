@@ -1,0 +1,563 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-pc-mingw32
+ 
+
+# Make data base, printed on Mon Aug 22 14:31:59 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile
+MAKEFLAGS = Rrqp
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+HOMEDRIVE = C:
+# automatic
+@F = $(notdir $@)
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile
+CURDIR := c:/Projects/IllinoisCpp/image-transform
+# default
+SHELL := C:/Program Files/Git/usr/bin/sh.exe
+# environment
+WINDIR = C:\Windows
+ 
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+ONEDRIVE = C:\Users\andrei\OneDrive
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# makefile (from `uiuc/make/uiuc.mk', line 1)
+MAKEFILE_LIST :=  makefile uiuc/make/uiuc.mk
+# makefile (from `uiuc/make/uiuc.mk', line 21)
+CXX_GNU = g++
+# environment
+TMP = C:\Users\andrei\AppData\Local\Temp
+# makefile (from `uiuc/make/uiuc.mk', line 31)
+CXXFLAGS = $(CS400) $(STDVERSION) $(STDLIBVERSION) -g -O0 $(WARNINGS) -MMD -MP -msse2 -c
+# makefile (from `uiuc/make/uiuc.mk', line 16)
+CPP_TEST = $(wildcard tests/*.cpp) uiuc/catch/catchmain.cpp
+# environment
+PROGRAMW6432 = C:\Program Files
+# makefile (from `uiuc/make/uiuc.mk', line 8)
+OBJS = main.o ImageTransform.o uiuc/HSLAPixel.o uiuc/PNG.o uiuc/lodepng/lodepng.o
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+VSCODE_CWD = C:\Projects\IllinoisCpp
+# environment
+PATH = C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\VulkanSDK\1.3.216.0\Bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\dotnet\;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\andrei\AppData\Local\Microsoft\WindowsApps;C:\Users\andrei\.dotnet\tools;C:\Users\andrei\AppData\Local\Programs\M 
+icrosoft VS Code\bin;C:\Program Files (x86)\GnuWin32\bin;
+# makefile (from `uiuc/make/uiuc.mk', line 24)
+LD = $(CXX_WHICH)
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+USERPROFILE = C:\Users\andrei
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# makefile (from `uiuc/make/uiuc.mk', line 29)
+STDLIBVERSION = $(STDLIBVERSION_GNU)
+# makefile (from `makefile', line 6)
+EXE_OBJ = main.o
+# environment
+NU 
+MBER_OF_PROCESSORS = 8
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from `uiuc/make/uiuc.mk', line 32)
+LDFLAGS = $(CS400) $(STDVERSION) $(STDLIBVERSION) -lpthread
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives
+# environment
+VK_SDK_PATH = C:\VulkanSDK\1.3.216.0
+# automatic
+%F = $(notdir $%)
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4228_QPANXZXZEDXTVMVO
+# environment
+COMPUTERNAME = DESKTOP-M01NEQV
+# environment
+PROGRAMFILES = C:\Program Files (x86) 
+
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# makefile (from `uiuc/make/uiuc.mk', line 4)
+ZIP_FILE = ImageTransform_submission.zip
+# makefile (from `uiuc/make/uiuc.mk', line 33)
+ASANFLAGS = -fsanitize=address -fno-omit-frame-pointer
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# makefile (from `uiuc/make/uiuc.mk', line 20)
+CXX_CLANG = clang++
+# environment
+USERNAME = andrei
+# environment
+PUBLIC = C:\Users\Public
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\andrei\AppData\Roaming\Code\CachedData\e4503b30fc78200f846c62cf8091b76ff5547662
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environment
+LOGONSERVER = \\DESKTOP-M01NEQV
+# makefile (from `uiuc/make/uiuc.mk', line 28)
+STDLIBVERSION_GNU = 
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+USERDOMAIN = DESKTOP-M01NEQV
+# makefile (from `makefil 
+e', line 3)
+TEST = test
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from `uiuc/make/uiuc.mk', line 5)
+COLLECTED_FILES = uiuc/HSLAPixel.h uiuc/HSLAPixel.cpp ImageTransform.h ImageTransform.cpp
+# default
+MAKE_VERSION := 3.81
+# makefile
+.DEFAULT_GOAL := ImageTransform
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LOCALAPPDATA = C:\Users\andrei\AppData\Local
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 10, GenuineIntel
+# environment
+OS = Windows_NT
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\bca2e41f88040e83c1d0e632f6db003c-1.70.2-main-sock
+# environment
+HOMEPATH = \Users\andrei
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x 
+86)\Common Files
+# environment
+PROMPT = $P$G
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+SYSTEMROOT = C:\Windows
+# makefile (from `uiuc/make/uiuc.mk', line 11)
+OBJS_DIR = .objs
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# makefile (from `uiuc/make/uiuc.mk', line 22)
+CXX_WHICH = $(CXX_GNU)
+# environment
+APPDATA = C:\Users\andrei\AppData\Roaming
+# environment
+TEMP = C:\Users\andrei\AppData\Local\Temp
+# environment
+COMSPEC = C:\Windows\s 
+ystem32\cmd.exe
+# makefile (from `uiuc/make/uiuc.mk', line 26)
+STDVERSION = -std=c++14 
+# default
+MAKEFILES := 
+# makefile (from `uiuc/make/uiuc.mk', line 30)
+WARNINGS = -pedantic -Wall -Wfatal-errors -Wextra -Wno-unused-parameter -Wno-unused-variable
+# automatic
+<F = $(notdir $<)
+# makefile (from `uiuc/make/uiuc.mk', line 27)
+STDLIBVERSION_CLANG = -stdlib=libc++ 
+# makefile (from `uiuc/make/uiuc.mk', line 23)
+CXX = $(CXX_WHICH)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# 
+ environment
+SYSTEMDRIVE = C:
+# environment
+SESSIONNAME = Console
+# environment
+PROCESSOR_REVISION = 8e0a
+# makefile (from `uiuc/make/uiuc.mk', line 17)
+OBJS_TEST = $(filter-out $(EXE_OBJ), $(OBJS)) $(CPP_TEST:.cpp=.o)
+# environment
+MAKELEVEL := 0
+# environment
+VULKAN_SDK = C:\VulkanSDK\1.3.216.0
+# makefile (from `makefile', line 2)
+EXE = ImageTransform
+# makefile (from `makefile', line 10)
+CLEAN_RM = out-*.png
+# environment
+LANG = C
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+VSCODE_PID = 4228
+# enviro 
+nment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-M01NEQV
+# variable set hash-table stats:
+# Load=107/1024=10%, Rehash=0, Collisions=24/166=14%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# .objs/uiuc/catch: could not be stat'd.
+# .objs/uiuc: could not be stat'd.
+# C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin (key C:/Program Files/Microsoft/jdk-11.0.12.7-hotspot/bin, mtime 1659169594): 127 files, no impossibilities.
+# C:\Windows\System32\WindowsPowerShell\v1.0 
+\ (key C:/Windows/System32/WindowsPowerShell/v1.0/, mtime 1633528630): 30 files, no impossibilities.
+# C:\Windows\System32\Wbem (key C:/Windows/System32/Wbem, mtime 1661026410): 169 files, no impossibilities.
+# . (key c:/Projects/IllinoisCpp/image-transform, mtime 1661167160): 13 files, no impossibilities.
+# C:\Program Files\Git\mingw64\bin (key C:/Program Files/Git/mingw64/bin, mtime 1661167732): 146 files, no impossibilities.
+# C:\Program Files\dotnet\ (key C:/Program Files/dotnet/, mtime 1659169057): 12  
+files, no impossibilities.
+# C:\Windows\System32\OpenSSH\: could not be stat'd.
+# .objs (key c:/Projects/IllinoisCpp/image-transform/.objs, mtime 1661167160): 2 files, no impossibilities.
+# C:\Windows (key C:/Windows, mtime 1661026409): 104 files, no impossibilities.
+# C:\Program Files\Git\usr\bin (key C:/Program Files/Git/usr/bin, mtime 1661167732): 307 files, no impossibilities so far.
+# C:\Program Files\Intel\WiFi\bin\ (key C:/Program Files/Intel/WiFi/bin/, mtime 1657205964): 28 files, no impossibilities 
+.
+# C:\Program Files\Common Files\Intel\WirelessCommon\ (key C:/Program Files/Common Files/Intel/WirelessCommon/, mtime 1657205951): 6 files, no impossibilities.
+# C:\VulkanSDK\1.3.216.0\Bin (key C:/VulkanSDK/1.3.216.0/Bin, mtime 1659168581): 48 files, no impossibilities.
+# C:\Program Files\Git\cmd (key C:/Program Files/Git/cmd, mtime 1661167732): 8 files, no impossibilities.
+# C:\Windows\system32 (key C:/Windows/system32, mtime 1661026720): 2916 files, no impossibilities.
+# .objs/tests: could not be stat'd 
+.
+# tests (key c:/Projects/IllinoisCpp/image-transform/tests, mtime 1661166576): 4 files, no impossibilities.
+# .objs/uiuc/lodepng: could not be stat'd.
+# C:\Program Files (x86)\GnuWin32\bin (key C:/Program Files (x86)/GnuWin32/bin, mtime 1661166675): 5 files, no impossibilities.
+
+# 3925 files, no impossibilities in 21 directories.
+
+# Implicit Rules
+
+.objs/%.o: %.cpp | .objs
+#  commands to execute (from `uiuc/make/uiuc.mk', line 55):
+	$(CXX) $(CXXFLAGS) $< -o $@
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+#  
+Files
+
+# Not a target:
+.objs/uiuc/lodepng/lodepng.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.objs/*.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.objs/main.o: main.cpp | .objs
+#  Implicit rule search has been done.
+#  I 
+mplicit/static pattern stem: `main'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := .objs/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := main.cpp
+# automatic
+# | := .objs
+# automatic
+# < := main.cpp
+# automatic
+# ^ := main.cpp
+# automatic
+# ? := main.cpp
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/21=14%
+#  commands to execute (from `uiuc/make/uiuc.mk', line 55):
+	$(CXX) $(CXXFLAGS) $< -o $@
+	
+
+# Not 
+ a target:
+.objs/tests/part2.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: ImageTransform test
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/11=0%
+
+# Not a target:
+.objs/ImageTransform.o:
+#  Implicit rule search has not 
+ been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all tidy clean zip
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+zip:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `uiuc/make/uiuc.mk', line 82):
+	@echo "!!! Preparing submission zip with student code..."
+	@echo "!!! Make sure you have already tried compiling and testing your code"
+	@echo "!!! thoroughly before submitting the zip on Coursera!"
+	@echo ""
+	@echo "Removing any previous version of zip file..."
+	rm -rf $(ZIP_FILE)
+	@echo "Creating new file..."
+	zip $(ZIP_FILE) $(COLLECTED_FILES)
+	@echo "Created zip file: " $(ZIP_FILE)
+	
+
+# Not a target:
+.objs/uiuc/*.d:
+#  A default, MAKEFILES, or -include/sinclu 
+de makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+test: .objs/ImageTransform.o .objs/uiuc/HSLAPixel.o .objs/uiuc/PNG.o .objs/uiuc/lodepng/lodepng.o .objs/tests/part1.o .objs/tests/part2.o .objs/uiuc/catch/catchmain.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `u 
+iuc/make/uiuc.mk', line 59):
+	$(LD) $^ $(LDFLAGS) -o $@
+	@echo ""
+	@echo " Built the test suite program: " $(TEST)
+	@echo ""
+	
+
+# Not a target:
+.objs/uiuc/PNG.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-22 14:09:36
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.objs:
+#  
+ Implicit rule search has not been done.
+#  Last modified 2022-08-22 14:19:20
+#  File has been updated.
+#  Successfully updated.
+#  commands to execute (from `uiuc/make/uiuc.mk', line 48):
+	@mkdir -p $(OBJS_DIR)
+	@mkdir -p $(OBJS_DIR)/uiuc
+	@mkdir -p $(OBJS_DIR)/uiuc/catch
+	@mkdir -p $(OBJS_DIR)/uiuc/lodepng
+	@mkdir -p $(OBJS_DIR)/tests
+	
+
+# Not a target:
+main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-22 14:09:36
+#  File has been updated.
+#  Successfully updated.
+# variable set ha 
+sh-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+ImageTransform: .objs/main.o .objs/ImageTransform.o .objs/uiuc/HSLAPixel.o .objs/uiuc/PNG.o .objs/uiuc/lodepng/lodepng.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/11=0%
+#  commands to execute (from `uiuc/make/uiuc.mk', line 37):
+	$(LD) $^ $(LDFLAGS) -o $@
+	@echo ""
+	@echo " Built the main ex 
+ecutable program file for the project: " $(EXE)
+	@echo " (Make sure you try \"make test\" too!)"
+	@echo ""
+	
+
+# Not a target:
+.objs/uiuc/HSLAPixel.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+uiuc/make/uiuc.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-22 14:09:36
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a targ 
+et:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `uiuc/make/uiuc.mk', line 76):
+	rm -rf $(EXE) $(TEST) $(OBJS_DIR) $(CLEAN_RM) $(ZIP_FILE)
+	
+
+# Not a target:
+.objs/uiuc/catch/catchmain.o:
+#  Implicit rule search has not been done.
+#  Modification time never che 
+cked.
+#  File has not been updated.
+
+tidy: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `uiuc/make/uiuc.mk', line 79):
+	rm -rf doc
+	
+
+# Not a target:
+.objs/tests/part1.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.objs/tests/*.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit r 
+ule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.objs/uiuc/lodepng/*.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.objs/uiuc/catch/*.d:
+#  A de 
+fault, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=26/1024=3%, Rehash=0, Collisions=3/70=4%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 7
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / 
+ min = 4096 / avg = 4096
+# strcache free: total = 3984 / max = 3984 / min = 3984 / avg = 3984
+
+# Finished Make data base on Mon Aug 22 14:31:59 2022
+
+ 
