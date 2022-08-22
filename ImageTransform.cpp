@@ -85,6 +85,23 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
 **/
 PNG illinify(PNG image) {
 
+for (unsigned x = 0; x < image.width(); x++) {
+    for (unsigned y = 0; y < image.height(); y++) {
+      HSLAPixel & pixel = image.getPixel(x, y);
+      
+      int ILLINI_ORANGE = 11;
+      int ILLINI_BLUE = 216;
+
+      int pixelTiltOrange = pixel.h - ILLINI_ORANGE;
+      if (pixelTiltOrange < 0) pixelTiltOrange = pixelTiltOrange * -1;
+      
+      int pixelTiltBlue = pixel.h - ILLINI_BLUE;
+      if (pixelTiltBlue < 0) pixelTiltBlue = pixelTiltBlue * -1;
+
+      pixel.h = pixelTiltOrange > pixelTiltBlue ? ILLINI_ORANGE : ILLINI_BLUE;
+    }
+  }
+
   return image;
 }
  
