@@ -17,8 +17,8 @@ Email:
 (...end multi-line comment.)
 ******************** */
 
-using uiuc::PNG;
 using uiuc::HSLAPixel;
+using uiuc::PNG;
 
 /**
  * Returns an image that has been transformed to grayscale.
@@ -27,12 +27,15 @@ using uiuc::HSLAPixel;
  *
  * @return The grayscale image.
  */
-PNG grayscale(PNG image) {
+PNG grayscale(PNG image)
+{
   /// This function is already written for you so you can see how to
   /// interact with our PNG class.
-  for (unsigned x = 0; x < image.width(); x++) {
-    for (unsigned y = 0; y < image.height(); y++) {
-      HSLAPixel & pixel = image.getPixel(x, y);
+  for (unsigned x = 0; x < image.width(); x++)
+  {
+    for (unsigned y = 0; y < image.height(); y++)
+    {
+      HSLAPixel &pixel = image.getPixel(x, y);
 
       // `pixel` is a reference to the memory stored inside of the PNG `image`,
       // which means you're changing the image directly. No need to `set`
@@ -43,8 +46,6 @@ PNG grayscale(PNG image) {
 
   return image;
 }
-
-
 
 /**
  * Returns an image with a spotlight centered at (`centerX`, `centerY`).
@@ -57,7 +58,7 @@ PNG grayscale(PNG image) {
  * is a total of `sqrt((3 * 3) + (4 * 4)) = sqrt(25) = 5` pixels away and
  * its luminance is decreased by 2.5% (0.975x its original value).  At a
  * distance over 160 pixels away, the luminance will always decreased by 80%.
- * 
+ *
  * The modified PNG is then returned.
  *
  * @param image A PNG object which holds the image data to be modified.
@@ -66,12 +67,40 @@ PNG grayscale(PNG image) {
  *
  * @return The image with a spotlight.
  */
-PNG createSpotlight(PNG image, int centerX, int centerY) {
+PNG createSpotlight(PNG image, int centerX, int centerY)
+{
+
+  for (unsigned x = 0; x < image.width(); x++)
+  {
+    for (unsigned y = 0; y < image.height(); y++)
+    {
+      HSLAPixel &pixel = image.getPixel(x, y);
+      double distanceFromCenterOfCurrentPixel, computedLuminance;
+
+      double twentyPercentLuminance = (20 * pixel.l) / 100;
+
+      distanceFromCenterOfCurrentPixel = sqrt(x*x + y*y) - sqrt(centerX * centerX + centerY * centerY);
+      
+      if((int)distanceFromCenterOfCurrentPixel == 5) {
+        std::cout << "distanceFromCenterOfCurrentPixel: " << distanceFromCenterOfCurrentPixel << std::endl;     
+      }
+      // skip the center pixel itself
+      if(distanceFromCenterOfCurrentPixel == 0) continue;
+
+      if(distanceFromCenterOfCurrentPixel < 0) distanceFromCenterOfCurrentPixel = distanceFromCenterOfCurrentPixel * -1;
+
+      computedLuminance = distanceFromCenterOfCurrentPixel > 160 ? twentyPercentLuminance : 
+        (0.5 * distanceFromCenterOfCurrentPixel * pixel.l) / 100;
+
+      if((int)distanceFromCenterOfCurrentPixel == 5) {
+        std::cout << "computedLuminance: " << computedLuminance << std::endl;
+      }
+      pixel.l = computedLuminance;
+    }
+  }
 
   return image;
-  
 }
- 
 
 /**
  * Returns a image transformed to Illini colors.
@@ -82,43 +111,59 @@ PNG createSpotlight(PNG image, int centerX, int centerY) {
  * @param image A PNG object which holds the image data to be modified.
  *
  * @return The illinify'd image.
-**/
-PNG illinify(PNG image) {
+ **/
+PNG illinify(PNG image)
+{
 
-for (unsigned x = 0; x < image.width(); x++) {
-    for (unsigned y = 0; y < image.height(); y++) {
-      HSLAPixel & pixel = image.getPixel(x, y);
-      
+  for (unsigned x = 0; x < image.width(); x++)
+  {
+    for (unsigned y = 0; y < image.height(); y++)
+    {
+      HSLAPixel &pixel = image.getPixel(x, y);
+
       int ILLINI_ORANGE = 11;
       int ILLINI_BLUE = 216;
 
-      int pixelTiltOrange = pixel.h - ILLINI_ORANGE;
-      if (pixelTiltOrange < 0) pixelTiltOrange = pixelTiltOrange * -1;
-      
-      int pixelTiltBlue = pixel.h - ILLINI_BLUE;
-      if (pixelTiltBlue < 0) pixelTiltBlue = pixelTiltBlue * -1;
+      int tendencyOrange = pixel.h - ILLINI_ORANGE;
+      if (tendencyOrange < 0)
+        tendencyOrange = tendencyOrange * -1;
 
-      pixel.h = pixelTiltOrange > pixelTiltBlue ? ILLINI_ORANGE : ILLINI_BLUE;
+      int tendencyBlue = pixel.h - ILLINI_BLUE;
+      if (tendencyBlue < 0)
+        tendencyBlue = tendencyBlue * -1;
+
+      pixel.h = tendencyOrange > tendencyBlue ? ILLINI_ORANGE : ILLINI_BLUE;
     }
   }
 
   return image;
 }
- 
 
 /**
-* Returns an immge that has been watermarked by another image.
-*
-* The luminance of every pixel of the second image is checked, if that
-* pixel's luminance is 1 (100%), then the pixel at the same location on
-* the first image has its luminance increased by 0.2.
-*
-* @param firstImage  The first of the two PNGs, which is the base image.
-* @param secondImage The second of the two PNGs, which acts as the stencil.
-*
-* @return The watermarked image.
-*/
-PNG watermark(PNG firstImage, PNG secondImage) {
+ * Returns an image that has been watermarked by another image.
+ *
+ * The luminance of every pixel of the second image is checked, if that
+ * pixel's luminance is 1 (100%), then the pixel at the same location on
+ * the first image has its luminance increased by 0.2.
+ *
+ * @param firstImage  The first of the two PNGs, which is the base image.
+ * @param secondImage The second of the two PNGs, which acts as the stencil.
+ *
+ * @return The watermarked image.
+ */
+PNG watermark(PNG firstImage, PNG secondImage)
+{
+  for (unsigned x = 0; x < secondImage.width(); x++)
+  {
+    for (unsigned y = 0; y < secondImage.height(); y++)
+    {
+      HSLAPixel &pixelSecondImage = secondImage.getPixel(x, y);
 
+      if (pixelSecondImage.l == 1) {
+        HSLAPixel &pixelFirstImage = firstImage.getPixel(x,y);
+        pixelFirstImage.l += 0.2;
+      }
+    }
+  }
   return firstImage;
 }
