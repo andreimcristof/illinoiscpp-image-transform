@@ -75,27 +75,34 @@ PNG createSpotlight(PNG image, int centerX, int centerY)
     for (unsigned y = 0; y < image.height(); y++)
     {
       HSLAPixel &pixel = image.getPixel(x, y);
-      double distanceFromCenterOfCurrentPixel, computedLuminance;
-
+      double euclideanDistance;
+      double computedLuminance;
       double twentyPercentLuminance = (20 * pixel.l) / 100;
 
-      distanceFromCenterOfCurrentPixel = sqrt(x*x + y*y) - sqrt(centerX * centerX + centerY * centerY);
+// https://en.wikipedia.org/wiki/Euclidean_distance
+
+      euclideanDistance = sqrt( (x-centerX)*(x-centerX) + (y-centerY)*(y-centerY) );
       
-      if((int)distanceFromCenterOfCurrentPixel == 5) {
-        std::cout << "distanceFromCenterOfCurrentPixel: " << distanceFromCenterOfCurrentPixel << std::endl;     
-      }
       // skip the center pixel itself
-      if(distanceFromCenterOfCurrentPixel == 0) continue;
+      if(euclideanDistance == 0) continue;
 
-      if(distanceFromCenterOfCurrentPixel < 0) distanceFromCenterOfCurrentPixel = distanceFromCenterOfCurrentPixel * -1;
+      double multiplyFactor = 0.5;
+      double luminanceSubtraction = ((multiplyFactor * euclideanDistance) * pixel.l) / 100; 
+      computedLuminance = euclideanDistance > 160 ? twentyPercentLuminance : luminanceSubtraction;
 
-      computedLuminance = distanceFromCenterOfCurrentPixel > 160 ? twentyPercentLuminance : 
-        (0.5 * distanceFromCenterOfCurrentPixel * pixel.l) / 100;
-
-      if((int)distanceFromCenterOfCurrentPixel == 5) {
-        std::cout << "computedLuminance: " << computedLuminance << std::endl;
+      if(euclideanDistance > 160) {
+        pixel.l = twentyPercentLuminance;
+        continue;
       }
-      pixel.l = computedLuminance;
+
+      // if(x == 320 && y == 50) {
+      //   std::cout << "euclideanDistance: " << euclideanDistance << std::endl;    
+      //   std::cout << "pixel.l: " << pixel.l << std::endl;
+      //   std::cout << "computedLuminance: " << computedLuminance << std::endl;
+      //   std::cout << "updated pixel.l: " << pixel.l - computedLuminance << std::endl;
+      // }
+
+      pixel.l -= computedLuminance;     
     }
   }
 
@@ -121,18 +128,30 @@ PNG illinify(PNG image)
     {
       HSLAPixel &pixel = image.getPixel(x, y);
 
+
+      // thoughts:
+      // Hue edges are 0 and 360. ILLINI_ORANGE is 216. ILBlue is 11. Smaller tendency wins. After 360 it resets back to 11 (its a circle). So:
+      // Midpoint between 11 and 216 is 113.5. Tilt towards 11 means between 11 and midpoint, tilt towards 216 means after midpoint. 
+      // But from 216 upwards, back to 11 means reaching edge then back to 11: 360 - 216 + 11 = 155. So we have smth like:  
+      // left side of 216, and right side of 216. So thats: midpointLeft is 113.5, midpointRight is 216 + 155/2 = 293.5
+      
+      // so then the algo is comparing two midpoints: 
+      // <11> ---orangeTilt----- 113.5 ---blueTilt----- <216> ---blueTilt---- 293.5 ---orangeTilt--- <11>.
+
       int ILLINI_ORANGE = 11;
       int ILLINI_BLUE = 216;
+      double leftMidpoint = 113.5;
+      double rightMidpoint = 293.5;
 
-      int tendencyOrange = pixel.h - ILLINI_ORANGE;
-      if (tendencyOrange < 0)
-        tendencyOrange = tendencyOrange * -1;
+      // so tilt towards blue is mid-graph, otherwise it must be orange
+      bool tiltBlue =  (leftMidpoint <= pixel.h && pixel.h <= rightMidpoint);
 
-      int tendencyBlue = pixel.h - ILLINI_BLUE;
-      if (tendencyBlue < 0)
-        tendencyBlue = tendencyBlue * -1;
+      if(x == 10 && y == 4) {
+        std::cout << "pixel.h: " << pixel.h << std::endl;
+        std:: cout << "tiltBlue: " << tiltBlue << std::endl; 
+      }
 
-      pixel.h = tendencyOrange > tendencyBlue ? ILLINI_ORANGE : ILLINI_BLUE;
+      pixel.h = tiltBlue ? ILLINI_BLUE : ILLINI_ORANGE;
     }
   }
 
